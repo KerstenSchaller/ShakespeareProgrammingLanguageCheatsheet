@@ -6,7 +6,7 @@
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------
 
-\documentclass[landscape,a0paper,fontscale=0.285]{baposter} % Adjust the font scale/size here
+\documentclass[a0paper,fontscale=0.285]{baposter} % Adjust the font scale/size here
 \title{Python Cheat Sheet New}
 \usepackage[brazilian]{babel}
 \usepackage[utf8]{inputenc}
@@ -63,19 +63,20 @@ headershape=roundedright, % Specify the rounded corner in the content box header
 headerfont=\Large\bf\textsc, % Large, bold and sans serif font in the headers of content boxes
 %textfont={\setlength{\parindent}{1.5em}}, % Uncomment for paragraph indentation
 linewidth=2pt % Width of the border lines around content boxes
+columns=3
 }
 %----------------------------------------------------------------
 %	Titel
 %----------------------------------------------------------------
 {\bf\textsc{Shakespeare Programming Language Cheat Sheet}\vspace{0.5em}} % Poster title
-{\textsc{\{ Shakespeare Programming Lannguage \ \ \ \ \ C h e a t \ \ \ \ \ S h e e t\} \hspace{12pt}}}
+{\textsc{\{ Shakespeare Programming Language \} \ \ \ \ \ \\\{ C h e a t \ \ \ \ \ S h e e t\} \hspace{12pt}}}
 {\textsc{Kersten Schaller \hspace{12pt}}} 
 
 
 %------------------------------------------------
 % Layout of a play
 %------------------------------------------------
-\headerbox{Layout of a play:}{name=objectives,column=0,row=0}{
+\headerbox{Layout of a play:}{name=layout,column=0,row=0}{
 
 %--------------------------------------
 \colorbox[HTML]{CCFFFF}{\makebox[\textwidth-2\fboxsep][l]{\bf - Titel:}}
@@ -120,14 +121,14 @@ Scene I: The insulting of Romeo.
 
 
 
-\vspace{0.0em} % When there are two boxes, some whitespace may need to be added if the one on the right has more content
+\vspace{8.0em} % When there are two boxes, some whitespace may need to be added if the one on the right has more content
 }
 
 %------------------------------------------------
 % Lines in Dialogs
 %------------------------------------------------
 
-\headerbox{Lines in Dialogs}{name=introduction,column=1,row=0,bottomaligned=objectives}{
+\headerbox{Lines in Dialogs}{name=lines1,column=1,row=0,bottomaligned=layout}{
 
 
 \colorbox[HTML]{CCFFFF}{\makebox[\textwidth-2\fboxsep][l]{\bf - Example 1}}
@@ -166,6 +167,12 @@ thyself!
  \item References: yourself, thyself, myself
  \end{itemize}
  
+ 
+
+}
+
+\headerbox{Lines in Dialogs}{name=lines2,column=2,row=0,bottomaligned=layout}{
+
  \colorbox[HTML]{CCFFFF}{\makebox[\textwidth-2\fboxsep][l]{\bf - Example 3 }}
 \begin{itemize}\compresslist
 \item  Juliet:\\
@@ -180,248 +187,189 @@ Hamlet:\\
  \item is <X> better than <Y> tests for X > Y
  \item is <X> worse than <Y> tests for X < Y
  \end{itemize}
- 
+
+\colorbox[HTML]{CCFFFF}{\makebox[\textwidth-2\fboxsep][l]{\bf - Conditional GoTo }}
+\begin{itemize}\compresslist
+ \item Logical Expression
+ \item <If so/If not>, <Let us, we shall, we must> <return to/ proceed to> <SceneX>
+ \end{itemize}
+
+\colorbox[HTML]{CCFFFF}{\makebox[\textwidth-2\fboxsep][l]{\bf - In- and Output }}
+\begin{itemize}\compresslist
+ \item In: Listen to your heart.
+ \item Out: Speak your mind.
+ \end{itemize}
+
+\colorbox[HTML]{CCFFFF}{\makebox[\textwidth-2\fboxsep][l]{\bf - Stack Operations }}
+\begin{itemize}\compresslist
+ \item Push: \\Lady Macbeth:\\
+ Remember <expression>.
+ \item Pop: \\Lady Macbeth:\\
+ Recall <Comment>
+ \end{itemize}
+
 
 }
 
-
-%------------------------------------------------
-% Lines in dialogs 2
-%------------------------------------------------
-
-\headerbox{Listas no Python}{name=results,column=2,span=2,row=0}{
-
-\colorbox[HTML]{CCFFFF}{\makebox[\textwidth-2\fboxsep][l]{\bf - Listas no Python}}
-\linebreak \\
-Listas são compostas por elementos de qualquer tipo (podem ser alteradas) \linebreak \\
-\begin{tabular}{@{}ll@{}}
-\textbf{Manipulação de Listas no Python}\\
-\multicolumn{2}{l}{\cellcolor[HTML]{DDFFFF}Criação} \\
-uma\_lista = [5,3,'p',9,'e'] & cria: [5,3,'p',9,'e'] \\
-\multicolumn{2}{l}{\cellcolor[HTML]{DDFFFF}Acessando} \\
-uma\_lista[0] & retorna: 5 \\
-\multicolumn{2}{l}{\cellcolor[HTML]{DDFFFF}Fatiando} \\
-uma\_lista[1:3] & retorna: [3,'p'] \\
-\multicolumn{2}{l}{\cellcolor[HTML]{DDFFFF}Comprimento} \\
-len(uma\_lista) & retorna: 5 \\
-\multicolumn{2}{l}{\cellcolor[HTML]{DDFFFF}count( item)} \\
-\multicolumn{2}{l}{Retorna quantas vezes o item foi encontrado na lista.} \\
-cont(uma\_lista('p') & retorna: 1 \\
-\multicolumn{2}{l}{Pode ser usado juntamente com a função while para 'andar' pelo comprimento da lista:} \\
-while x < len(uma\_lista): & retorna: [3,'p']\\
-\multicolumn{2}{l}{\cellcolor[HTML]{DDFFFF}Ordenar - sort()} \\
-uma\_lista.sort() & retorna: [3,5,9,'e','p'] \\
-\multicolumn{2}{l}{Ordenar sem alterar a lista} \\
-print(sorted(uma\_lista)) & retorna: [3,5,9,'e','p'] \\
-\multicolumn{2}{l}{\cellcolor[HTML]{DDFFFF}Adicionar - append(item)} \\
-uma\_lista.append(37) & retorna: [5,3,'p',9,'e',37] \\
-\multicolumn{2}{l}{\cellcolor[HTML]{DDFFFF}Inserir - insert(position,item)} \\
-insert(uma\_lista.append(3),200) & retorna: [5,3,200,'p',9,'e'] \\
-\multicolumn{2}{l}{\cellcolor[HTML]{DDFFFF}Retornar e remover - pop(position)} \\
-uma\_lista.pop() & retorna: 'e' e a lista fica [5,3,'p',9] - remove o último elemento \\
-uma\_lista.pop(1) & retorna: 3 e a lista fica [5,'p',9,'e'] - remove o elemento 1 \\
-\multicolumn{2}{l}{\cellcolor[HTML]{DDFFFF}Remover - remove(item)} \\
-uma\_lista.remove('p') & retorna: [5,3,9,'e'] \\
-\multicolumn{2}{l}{\cellcolor[HTML]{DDFFFF}Inserir} \\
-uma\_lista.insert(2,'z') & retorna: [5,'z',3,'p',9,'e'] - insere na posição numerada \\
-\multicolumn{2}{l}{\cellcolor[HTML]{DDFFFF}Inverter - reverse()} \\
-reverse(uma\_lista) & retorna: ['e',9,'p',3,5] \\
-\multicolumn{2}{l}{\cellcolor[HTML]{DDFFFF}Concatenar} \\
-uma\_lista+[0] & retorna: [5,3,'p',9,'e',0] \\
-uma\_lista+uma\_lista & retorna: [5,3,'p',9,'e',5,3,'p',9,'e'] \\
-\multicolumn{2}{l}{\cellcolor[HTML]{DDFFFF}Encontrar} \\
-9 in uma\_lista & retorna: True \\
-for x in uma\_lista & retorna toda a lista, um elemento por linha \\
-......print(x) &
-\end{tabular}
-%------------------------------------------------
-}
-\end{poster}
-\new      page
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%    SEGUNDA PÁGINA    %%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{poster}
+\headerbox{Charachters}{name=characters,column=0,span = 3,row=0,below=layout}
 {
-headerborder=closed, colspacing=0.8em, bgColorOne=white, bgColorTwo=white, borderColor=lightblue, headerColorOne=black, headerColorTwo=lightblue, 
-headerFontColor=white, boxColorOne=white, textborder=roundedleft, eyecatcher=true, headerheight=0.1\textheight, headershape=roundedright, headerfont=\Large\bf\textsc, linewidth=2pt 
-}
-%----------------------------------------------------------------
-%	TITLE SECTION 
-%----------------------------------------------------------------
-{\bf\textsc{Python Cheat Sheet}\vspace{0.5em}} % Poster title
-{\textsc{\{ P y t h o n \ \ \ \ \ C h e a t \ \ \ \ \ S h e e t\} \hspace{12pt}}}
-{\textsc{Michelle Cristina de Sousa Baltazar \\ (Universidade Federal do Triângulo Mineiro) \hspace{12pt}}} 
+Achilles
+Adonis
+Adriana
+Aegeon
+Aemilia
+Agamemnon
+Agrippa
+Ajax
+Alexander
+Alonso
+Andromache
+Angelo
+Antiochus
+Antonio
+Arthur
+Autolycus
+Balthazar
+Banquo
+Beatrice
+Benedick
+Benvolio
+Bianca
+Brabantio
+Brutus
+Capulet
+Cassandra
+Cassius
+Christopher Sly
+Cicero
+Claudio
+Claudius
+Cleopatra
+Cordelia
+Cornelius
+Cressida
+Cymberline
+Demetrius
+Desdemona
+Dionyza
+Doctor Caius
+Dogberry
+Don John
+Don Pedro
+Donalbain
+Dorcas
+Duncan
+Egeus
+Emilia
+Escalus
+Falstaff
+Fenton
+Ferdinand
+Ford
+Fortinbras
+Francisca
+Friar John
+Friar Laurence
+Gertrude
+Goneril
+Hamlet
+Hecate
+Hector
+Helen
+Helena
+Hermia
+Hermonie
+Hippolyta
+Horatio
+Imogen
+Isabella
+John of Gaunt
+John of Lancaster
+Julia
+Juliet
+Julius Caesar
+King Henry
+King John
+King Lear
+King Richard
+Lady Capulet
+Lady Macbeth
+Lady Macduff
+Lady Montague
+Lennox
+Leonato
+Luciana
+Lucio
+Lychorida
+Lysander
+Macbeth
+Macduff
+Malcolm
+Mariana
+Mark Antony
+Mercutio
+Miranda
+Mistress Ford
+Mistress Overdone
+Mistress Page
+Montague
+Mopsa
+Oberon
+Octavia
+Octavius Caesar
+Olivia
+Ophelia
+Orlando
+Orsino
+Othello
+Page
+Pandarus
+Pantino
+Paris
+Pericles
+Pinch
+Polonius
+Pompeius
+Portia
+Priam
+Prince Henry
+Prospero
+Proteus
+Publius
+Puck
+Queen Elinor
+Regan
+Robin
+Romeo
+Rosalind
+Sebastian
+Shallow
+Shylock
+Slender
+Solinus
+Stephano
+Thaisa
+The Abbot of Westminster
+The Apothecary
+The Archbishop of Canterbury
+The Duke of Milan
+The Duke of Venice
+The Ghost
+Theseus
+Thurio
+Timon
+Titania
+Titus
+Troilus
+Tybalt
+Ulysses
+Valentine
+Venus
+Vincentio
+Viola}
 
-%----------------------------------------------------------------
-%	Outros Elementos
-%----------------------------------------------------------------
-\headerbox{Outros Elementos}{name=method,column=0}{
-
-\colorbox[HTML]{CCFFFF}{\makebox[\textwidth-2\fboxsep][l]{\bf - Palavras-Chave}}
-\begin{tabular}{lp{5.8cm}lp{1.0cm}}
-{\bf Oper.} & {\bf Descrição}\\
-print & Imprime para a tela \\
-while & "Enquanto" - laço para repetição de alguma condição \\
-for & "Para" - loop para repetição de alguma condição \\
-break & Interrompe o loop caso necessário \\
-continue & Interrompe o loop atual sem sair do loop, reiniciando \\
-if & "Se" - usado para testar alguma condição \\
-elif & É uma variante para o "senão" - se a primeira condição falha, testa a próxima \\
-else & "Senão" - é opicional e será executado quando a primeira condição falhar \\
-is & Testa a identidade do objeto \\
-import & Importa outros módulos para dentro de um script \\
-as & Usado para dar um apelido (alias) para um módulo \\
-from & Para importar uma variável especifica, classe ou função de um módulo \\
-def & Usado para criar uma função nova definida pelo usuário \\
-return & Sai da função e retorna um valor \\
-lambda & Cria uma função nova anônima \\
-global & Acessa variáveis definida globalmente (fora de uma função) \\
-try & Especifica manipuladores de exceções  \\
-except & Captura a exceção e executa códigos \\
-finally & É sempre executado no final, utilizado para limpar os recursos \\
-raise & Cria uma exceção definida pelo usuário \\
-del & Deleta objetos \\
-pass & Não faz nada \\
-assert & Usado para fins de depuração \\
-class & Usado para criar objetos definidos pelo usuário \\
-exec & Executa dinamicamente um código Python \\
-yield & É usado com geradores
-\end{tabular}
 
 
-}
 
-%----------------------------------------------------------------
-%	Operadores
-%----------------------------------------------------------------
-\headerbox{Operadores Python}{name=results2,column=1}{
-Tomemos como exemplo a=10 e b=20:\\
-\colorbox[HTML]{CCFFFF}{\makebox[\textwidth-2\fboxsep][l]{\bf - Operadores Aritméticos}}
-\begin{tabular}{lll}
-{\bf Op.} & {\bf Descrição} & {\bf Exemplo} \\
-+ & Adição & a + b retorna: 30 \\
-- & Subtração & a - b retorna: -10 \\
-* & Multiplicação & a * b retorna: 200 \\
-/ & Divisão & b / a retorna: 2 \\
-\% & Módulo & a \% b retorna: 0 \\
-** & Exponencial & a**b retorna: $10^{20}$ \\
-// & Divisão Piso & 9 // 2 retorna: 4
-\end{tabular}
-
-%----OPERADORES DE COMPARAÇÃO-----------
-\colorbox[HTML]{CCFFFF}{\makebox[\textwidth-2\fboxsep][l]{\bf - Operadores de Comparação}}
-As operações básicas de comparação podem ser usadas de diversas maneiras para todos os tipos de valores - números, strings, sequencias, listas, etc. O retorno será sempre True ou False.\\
-\begin{tabular}{lll}
-{\bf Op.} & {\bf Descrição} & {\bf Exemplo} \\
-< & Menor que & a < b retorna: True \\
-<= & Menor ou igual & a <= b retorna: True \\
-== & Igual & a == b retorna: False \\
-> & Maior que & a > b retorna: False \\
->= & Maior ou igual & a >= b retorna: False \\
-!= & Diferente & a != b retorna: True \\
-<> & Diferente & a <> b retorna: True
-\end{tabular}
-
-%------OPERADORES LÓGICOS-----------
-\colorbox[HTML]{CCFFFF}{\makebox[\textwidth-2\fboxsep][l]{\bf - Operadores Lógicos}}
-Os operadores lógicos {\bf and} e {\bf or} Também retornam um valor booleano quando usado em uma estrutura de decisão.\\
-\begin{tabular}{lp{6.5cm}lp{1.0cm}|}
-{\bf Op.} & {\bf Descrição}\\
-and & Se o resultado de ambos operadores é verdadeiro, retorna: True \\
-or & Se um dos resultados retorna verdadeiro, retorna: True \\
-not & É utilizado para reverter o estado lógico de qualquer operação booleana.
-\end{tabular}
-
-%-------TUPLAS---------------------
-\colorbox[HTML]{CCFFFF}{\makebox[\textwidth-2\fboxsep][l]{\bf - Tuplas no Python}}
-Tupla é uma lista de valores separados por vírgulas - é similar à uma lista porém é imutável: \\ 
-uma\_tupla = 'a','b','c','d','e' \\
-outra\_tupla = ('a','b','c','d','e') \\
-
-%------NÚMEROS ALEATÓRIOS----------
-\colorbox[HTML]{CCFFFF}{\makebox[\textwidth-2\fboxsep][l]{\bf - Números Aleatórios}}
-Strings são compostos de caracteres: \\ 
-uma\_string = "Hello World!" \\
-outra\_string = 'Ola Mundo!"
-
-}
-
-%----------------------------------------------------------------
-%	Strings no Python
-%----------------------------------------------------------------
-\headerbox{Strings no Python}{name=conclusion,column=2,span=2,row=0}{
-string é uma sequencia de caracteres geralmente usada para armazenar texto. \\
-Strings são compostos de caracteres (não podem ser alterados - são imutáveis) \\ 
-\linebreak
-%% {lp{5.8cm}lp{1.0cm}|}
-\begin{tabular}{@{}lp{10.2cm}l@{}}
-\multicolumn{2}{l}{\cellcolor[HTML]{DDFFFF}Criação} \\
-uma\_string = "Hello World!" & outra\_string = 'Ola Mundo!" \\
-\multicolumn{2}{l}{\cellcolor[HTML]{DDFFFF}Acessando} \\
-uma\_string[4] & retorna: 'o' \\
-\multicolumn{2}{l}{(este caso retorna a 4ª posição do texto - começando a contar a partir do zero)} \\
-\multicolumn{2}{l}{\cellcolor[HTML]{DDFFFF}Dividindo} \\
-uma\_string.split('') & retorna ['Hello','World'] \\
-\multicolumn{2}{l}{(este caso divide o texto no espaço em branco em uma lista de duas strings)} \\
-uma\_string.split('r') & retorna ['Hello Wo','ld'] \\
-\multicolumn{2}{l}{(este caso divide o texto na letra 'r' em uma lista de duas strings)} \\
-\multicolumn{2}{l}{\cellcolor[HTML]{DDFFFF}Unindo} \\
-\multicolumn{2}{l}{Para unir uma lista de strings usaremos a função join() } \\
-\multicolumn{2}{l}{uma\_lista = ["isto","eh","uma","lista","de","strings"]} \\
-' '.join(uma\_lista) & retorna: "isto eh uma lista de strings" \\
-' 'TESTE'.join(uma\_lista) & Retorna: \\
-''.join(uma\_lista) & retorna: "istoehumalistadestrings" \\
-\multicolumn{2}{l}{\cellcolor[HTML]{DDFFFF}Formatando Strings} \\
-\multicolumn{2}{l}{Podemos usar o operador \% para adicionar elementos em uma string:} \\
-\multicolumn{2}{l}{esta\_string = "todos"} \\
-print("Olá para \%s!" \%esta\_string) & retorna: "Olá para todos!" \\
-\end{tabular}
-\linebreak
-
-%-----OPERAÇÕES COM STRINGS----------
-\colorbox[HTML]{CCFFFF}{\makebox[\textwidth-2\fboxsep][l]{\bf - Operações com Strings}}
-Definindo as variaveis de string para exemplo da seguinte forma: a = ['Hello'] e b = ['Python'] \\
-\begin{tabular}{lp{9.0cm}lp{1.0cm}lp{1.0cm}} %\begin{tabular}{lll}
-{\bf Oper.} & {\bf Descrição} & {\bf Exemplo} \\
-+ & Concatenation - soma o conteúdo das duas strings & a + b retorna: HelloPython \\
-* & Repetition - repete o conteúdo da string N vezes & a*2 retorna: HelloHello \\
-.[ ] & Slice - fatia retornando o caractere no respectivo indice & a[1] retorna: "e" \\
-.[ : ] & Range Slice - retorna os caracteres do intervalo indicado & a[1:4] retorna: "ell" \\
-in & Membership - se o caractere existe na string, retorna true & H in a will give 1 \\
-not in & Membership - se o caractere não existe na string, retorna true & M not in a retorna: 1 \\
-\% & Format - formata uma string & exemplos na tabela seguinte \\
-\end{tabular}
-
-%------FORMATAÇÃO DE STRINGS---------
-\colorbox[HTML]{CCFFFF}{\makebox[\textwidth-2\fboxsep][l]{\bf - Formatação de Strings}}
-\begin{tabular}{ll|ll} %\begin{tabular}{lp{3.0cm}lp{4.0cm}lp{2.0cm}lp{2.0cm}|} 
-{\bf Símbolo} & {\bf Conversão} & {\bf Símbolo} & {\bf Conversão} \\
-\%c & caractere					& \%i & decimal inteiro com sinal \\
-\%d & decimal inteiro com sinal	& \%u & decimal inteiro sem sinal \\
-\%o & octal inteiro				& \%x & hexadecimal inteiro (letras minúsculas) \\
-\%f & numero real ponto flutuante & \%X & hexadecimal inteiro (letras maiúsculas) \\
-\%g & o menor entre \%f e \%e & \%e & notação exponencial (com 'e' minúsculo) \\
-\%G & o menor entre \%f e \%E & \%E & notação exponencial (com 'E' maiúsculo) \\
-. & . & \%s & converção de string via str() antes de formatar \\
-\end{tabular}
-
-%-----------------------------------
-}
-%----------------------------------------------------------------
-%	REFERENCES  {name=objectives,column=0,row=0}
-%----------------------------------------------------------------
-%\headerbox{bb}{name=references,column=1,row=0}{}
-%----------------------------------------------------------------
-%	FUTURE RESEARCH
-%----------------------------------------------------------------
-%\headerbox{aa}{name=futureresearch,column=1,row=0}{}
-%----------------------------------------------------------------
-%	CONTACT INFORMATION
-%----------------------------------------------------------------
-%\headerbox{Contact Information}{name=contact,column=2,span=2,row=0}{}
-%----------------------------------------------------------------
 \end{poster}
 \end{document}
